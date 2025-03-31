@@ -10,6 +10,14 @@ type PortifolioService struct {
 	PortifolioUseCase *repository.InMemory
 }
 
+type PortfolioServiceInterface interface {
+	AddTradeService(trade models.Trade) error
+
+	GetHoldingsService() []map[string]interface{}
+
+	GetReturns(currentPrice float64) float64
+}
+
 func NewPortifolioService(repo *repository.InMemory) *PortifolioService {
 	return &PortifolioService{
 		PortifolioUseCase: repo,

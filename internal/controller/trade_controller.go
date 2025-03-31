@@ -10,10 +10,10 @@ import (
 )
 
 type TradeController struct {
-	Service *service.PortifolioService
+	Service service.PortfolioServiceInterface
 }
 
-func NewTradeController(s *service.PortifolioService) *TradeController {
+func NewTradeController(s service.PortfolioServiceInterface) *TradeController {
 	return &TradeController{
 		Service: s,
 	}
