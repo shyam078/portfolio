@@ -55,3 +55,10 @@ func (tc *TradeController) GetRetuns(c *gin.Context) {
 		"returns": returns,
 	})
 }
+func (tc *TradeController) GetHoldings(c *gin.Context) {
+	holdings := tc.Service.GetHoldingsService()
+
+	c.JSON(http.StatusOK, gin.H{
+		"holdings": holdings,
+	})
+}

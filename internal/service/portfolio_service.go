@@ -27,3 +27,6 @@ func (p *PortifolioService) AddTradeService(trade models.Trade) error {
 func (p *PortifolioService) GetReturns(currentPrice float64) float64 {
 	return p.GetReturns(currentPrice) //Note: Instead of calling the repository method, I called the service, which is why we got the error
 }
+func (p *PortifolioService) GetHoldingsService() []map[string]interface{} {
+	return p.PortifolioUseCase.GetHoldings()
+}

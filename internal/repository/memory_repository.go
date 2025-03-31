@@ -49,3 +49,14 @@ func (r *InMemory) GetReturns(currentPrice float64) float64 {
 	}
 	return total
 }
+func (r *InMemory) GetHoldings() []map[string]interface{} {
+	var holdings []map[string]interface{}
+	for _, sec := range r.Portifolio {
+		holdings = append(holdings, map[string]interface{}{
+			"ticket_symbol":     sec.TicketSymbol,
+			"quantity":          sec.Quantity,
+			"average_buy_price": sec.AverageBuyPrice,
+		})
+	}
+	return holdings
+}
